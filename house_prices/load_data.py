@@ -7,11 +7,8 @@ def standarize_data(data_series):
     values = sorted(data_series.dropna().unique())
     n_val = [i for i in range(len(values))]
     map_values = dict(zip(values, n_val))
+    labels[data_series.name] = map_values
     return data_series.map(map_values)
-
-
-# standarize_data(train_data['Neighborhood'])
-
 
 to_standarize = ['MSSubClass', 'MSZoning', 'Street', 'Alley', 'LotShape', 'LandContour', 'Utilities', 'LotConfig', 'LandSlope',\
        'Neighborhood', 'Condition1', 'Condition2', 'BldgType', 'HouseStyle',\
@@ -21,8 +18,12 @@ to_standarize = ['MSSubClass', 'MSZoning', 'Street', 'Alley', 'LotShape', 'LandC
        'FireplaceQu', 'GarageType', 'GarageFinish', 'GarageQual', 'GarageCond', 'PavedDrive',\
        'PoolQC', 'Fence', 'MiscFeature', 'MiscVal', 'MoSold', 'SaleType', 'SaleCondition']
 
+labels = dict()
+
 for series in to_standarize:
     train_data[series] = standarize_data(train_data[series])
     test_data[series] = standarize_data(test_data[series])
 
-print(train_data.info)
+print(labels)
+
+# print(train_data[0:-2].corrwith(train_data['SalePrice'], axis = 0))
