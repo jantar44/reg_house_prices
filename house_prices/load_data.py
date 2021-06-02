@@ -45,7 +45,7 @@ def get_data():
 def get_labels():
     return labels
 
-def get_inverted_labels3():
+def get_inverted_labels():
     inverted_labels = dict()
     for srs in to_standarize:
         inverted_labels[srs] = {v: k for k, v in labels[srs].items()}
