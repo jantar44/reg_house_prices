@@ -15,20 +15,12 @@ def info_discrete(column):
     scatter = seaborn.catplot(x = column, y = train['SalePrice'], kind='swarm', data = train)
     plt.show()
 
-def correlation_heatmap():
+def unsignificant_deletion():
     correlation = train.corrwith(train.SalePrice)
+    to_delete = list()
     for col_name, corr_value in correlation.items():
-        if corr_value > 0.3 or corr_value < -0.3:
-            print(col_name, corr_value)
-    #     print(i)
-    # print(train[0:-2].corrwith(train.SalePrice).keys())
-    # heatmap = seaborn.heatmap(train.corr())
-    # plt.show()
+        if corr_value < 0.35 and corr_value > -0.35:
+            to_delete.append(col_name)
+    return to_delete
 
-
-print(correlation_heatmap())
-# print(info_discrete(train['MSZoning']))
-
-# lis = [1,2,3]
-# plot2 = plt.plot(lis)
-# plt.show()
+print(len(train.columns))
