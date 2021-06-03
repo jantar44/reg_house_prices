@@ -22,5 +22,3 @@ def unsignificant_deletion():
         if corr_value < 0.35 and corr_value > -0.35:
             to_delete.append(col_name)
     return to_delete
-
-print(len(train.columns))
