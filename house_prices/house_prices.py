@@ -30,3 +30,26 @@ def unsignificant_deletion():
 
 trainX.drop(unsignificant_deletion(), axis = 1, inplace = True)
 testX.drop(unsignificant_deletion(), axis = 1, inplace = True)
+
+trainX['Alley'].fillna(2, inplace = True)
+trainX['GarageType'].fillna(6, inplace = True)
+trainX['GarageYrBlt'].fillna(0, inplace = True)
+trainX['GarageFinish'].fillna(3, inplace = True)
+trainX['BsmtQual'].fillna(4, inplace = True)
+trainX['MasVnrArea'].fillna(0, inplace = True)
+trainX['LotFrontage'].fillna(0, inplace = True)
+trainX['PoolQC'].fillna(3, inplace = True)
+
+# testX['Alley'].fillna(2, inplace = True)
+# testX['GarageType'].fillna(6, inplace = True)
+# testX['GarageYrBlt'].fillna(0, inplace = True)
+# testX['GarageFinish'].fillna(3, inplace = True)
+# testX['BsmtQual'].fillna(4, inplace = True)
+# testX['MasVnrArea'].fillna(0, inplace = True)
+# testX['LotFrontage'].fillna(0, inplace = True)
+# testX['PoolQC'].fillna(3, inplace = True)
+
+
+# print(trainX['Alley'].unique())
+print(testX.info())
+print(testX['KitchenQual'].unique())
